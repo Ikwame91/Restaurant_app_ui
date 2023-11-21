@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:simple_restaurant_ui/constants/colors.dart';
 import 'package:simple_restaurant_ui/models/food.dart';
 
 class FoodDetails extends StatefulWidget {
@@ -46,11 +47,65 @@ class _FoodDetailsState extends State<FoodDetails> {
                             fontSize: 25, color: Colors.black),
                       ),
                     ],
-                  )
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    widget.food.name,
+                    style: GoogleFonts.dmSerifDisplay(
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    'Description',
+                    style: GoogleFonts.dmSerifDisplay(
+                        fontSize: 25,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    widget.food.description,
+                    style: GoogleFonts.roboto(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400),
+                  ),
                 ],
               ),
             ),
-          )
+          ),
+          Container(
+            decoration: BoxDecoration(
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                //price
+
+                Row(
+                  children: [
+                    Text(
+                      '\$${widget.food.price},',
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
