@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_restaurant_ui/constants/food_list.dart';
+import 'package:simple_restaurant_ui/pages/food_details.dart';
 import 'package:simple_restaurant_ui/pages/food_tile.dart';
 import 'package:simple_restaurant_ui/widgets/custom_container.dart';
 
@@ -14,6 +15,17 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  void navigateToFoodDetails(int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => FoodDetails(
+          food: foodMenu[index],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -118,13 +130,14 @@ class _MenuPageState extends State<MenuPage> {
                 ),
 
                 SizedBox(
-                  height: 370,
-                  child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: foodMenu.length,
-                      itemBuilder: (context, index) =>
-                          FoodTile(food: foodMenu[index])),
-                ),
+                    height: 370,
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: foodMenu.length,
+                        itemBuilder: (context, index) => FoodTile(
+                              food: foodMenu[index],
+                              onTap: () => navigateToFoodDetails(index),
+                            ))),
                 const SizedBox(
                   height: 20,
                 ),
@@ -133,13 +146,39 @@ class _MenuPageState extends State<MenuPage> {
                     color: Colors.grey[100],
                     borderRadius: BorderRadius.circular(20),
                   ),
+                  margin: const EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(
-                        'lib/images/fufuone.png',
-                        height: 100,
+                      Row(
+                        children: [
+                          Image.asset(
+                            'lib/images/pitza.png',
+                            height: 100,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Pizza Masquerade',
+                                style: GoogleFonts.dmSerifDisplay(
+                                    fontSize: 20, color: Colors.black),
+                              ),
+                              Text(
+                                '\$28.00',
+                                style: GoogleFonts.dmSerifDisplay(
+                                    fontSize: 20, color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ],
                       ),
+                      const Icon(Icons.favorite_outline,
+                          color: Colors.red, size: 30),
                     ],
                   ),
                 )

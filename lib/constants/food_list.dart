@@ -2,7 +2,7 @@ import 'package:simple_restaurant_ui/models/food.dart';
 
 List foodMenu = [
   Food(
-    name: 'Pizza',
+    name: 'banku & okro stew',
     image: 'lib/images/bankuone.png',
     description:
         'Pizza is a savory dish of Italian origin consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients, which is then baked at a high temperature, traditionally in a wood-fired oven.',
@@ -13,7 +13,7 @@ List foodMenu = [
     quantity: 1,
   ),
   Food(
-    name: 'Burger',
+    name: 'fufu & palm soup',
     image: 'lib/images/fufuone.png',
     description:
         'A beef (also burger for short) is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, smoked or flame broiled.',
@@ -24,7 +24,7 @@ List foodMenu = [
     quantity: 1,
   ),
   Food(
-    name: 'Pasta',
+    name: 'yam & palava sauce',
     image: 'lib/images/yamone.png',
     description:
         'Pasta is a type of Italian food typically made from an unleavened dough of wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking.',
@@ -35,7 +35,7 @@ List foodMenu = [
     quantity: 1,
   ),
   Food(
-      name: 'Salad',
+      name: 'fufu & light soup',
       image: 'lib/images/fufuthree.png',
       description:
           'A salad is a dish consisting of a mixture of small pieces of food, usually vegetables or fruits. However, different varieties of salad may contain virtually any type of ready-to-eat food.',
