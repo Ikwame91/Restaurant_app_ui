@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:simple_restaurant_ui/constants/food_list.dart';
 import 'package:simple_restaurant_ui/pages/food_details.dart';
 import 'package:simple_restaurant_ui/pages/food_tile.dart';
@@ -16,6 +17,9 @@ class MenuPage extends StatefulWidget {
 
 class _MenuPageState extends State<MenuPage> {
   void navigateToFoodDetails(int index) {
+    //get the shop and its menu
+    final shop = context.read<FoodShop>();
+    final foodMenu = shop.foodmenu;
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -28,6 +32,8 @@ class _MenuPageState extends State<MenuPage> {
 
   @override
   Widget build(BuildContext context) {
+    final shop = context.read<FoodShop>();
+    final foodMenu = shop.foodmenu;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[350],

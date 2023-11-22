@@ -18,12 +18,12 @@ class Food {
     required this.id,
     required this.quantity,
   });
-  // String get _name => name;
-  // String get _image => image;
-  // String get _description => description;
-  // double get _price => price;
-  // String get _category => category;
-  // String get _rating => rating;
-  // String get _id => id;
-  // int get _quantity => quantity;
+  String get _name => name;
+  String get _image => image;
+  String get _description => description;
+  double get _price => price;
+  String get _category => category;
+  String get _rating => rating;
+  String get _id => id;
+  int get _quantity => quantity;
 }

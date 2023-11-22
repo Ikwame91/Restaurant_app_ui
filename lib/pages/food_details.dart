@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:simple_restaurant_ui/constants/colors.dart';
 import 'package:simple_restaurant_ui/models/food.dart';
+import 'package:simple_restaurant_ui/widgets/custom_container.dart';
 
 class FoodDetails extends StatefulWidget {
   const FoodDetails({super.key, required this.food});
@@ -11,6 +12,30 @@ class FoodDetails extends StatefulWidget {
 }
 
 class _FoodDetailsState extends State<FoodDetails> {
+  //
+  int quantity = 0;
+
+  //increment quantity
+  void incrementQuantity() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  //decrement quantity
+  void decrementQuantity() {
+    setState(() {
+      if (quantity > 0) {
+        quantity--;
+      }
+    });
+  }
+
+  //add to cart
+  void addToCart() {
+    //add to cart
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,21 +112,63 @@ class _FoodDetailsState extends State<FoodDetails> {
               color: primaryColor,
               borderRadius: BorderRadius.circular(5),
             ),
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(5),
             child: Column(
               children: [
                 //price
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '\$${widget.food.price},',
+                      '\$${widget.food.price}',
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 20),
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            color: secondaryColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: IconButton(
+                              onPressed: decrementQuantity,
+                              icon: const Icon(Icons.remove)),
+                        ),
+
+                        //text
+
+                        SizedBox(
+                          width: 40,
+                          child: Center(
+                            child: Text(quantity.toString(),
+                                style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 22)),
+                          ),
+                        ),
+                        //increment quantity
+                        Container(
+                          decoration: BoxDecoration(
+                            color: secondaryColor,
+                            shape: BoxShape.circle,
+                          ),
+                          child: IconButton(
+                              onPressed: incrementQuantity,
+                              icon: const Icon(Icons.add)),
+                        )
+                      ],
                     )
                   ],
+                ),
+                const SizedBox(height: 20),
+                CustomContainer(
+                  text: 'Add to Cart',
+                  onTap: () => addToCart(),
                 )
               ],
             ),
