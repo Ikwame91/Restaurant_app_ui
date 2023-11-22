@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:simple_restaurant_ui/constants/colors.dart';
+import 'package:simple_restaurant_ui/constants/food_list.dart';
 import 'package:simple_restaurant_ui/models/food.dart';
 import 'package:simple_restaurant_ui/widgets/custom_container.dart';
 
@@ -34,6 +36,39 @@ class _FoodDetailsState extends State<FoodDetails> {
   //add to cart
   void addToCart() {
     //add to cart
+    //only add to cart if thers quantity in the cart
+    if (quantity > 0) {
+      //get access to shop
+      final shop = context.read<FoodShop>();
+
+      //add to cart
+      shop.addToCart(widget.food, quantity);
+      //let the user know it was syccessful
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          backgroundColor: primaryColor,
+          content: const Text(
+            'successfully added item',
+            style: TextStyle(color: Colors.white, fontSize: 20),
+            textAlign: TextAlign.center,
+          ),
+          actions: [
+            //okay button
+            IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.done,
+                  color: Colors.white,
+                ))
+          ],
+        ),
+      );
+    }
   }
 
   @override

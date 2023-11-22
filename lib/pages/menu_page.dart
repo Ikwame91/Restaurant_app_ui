@@ -18,6 +18,7 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   void navigateToFoodDetails(int index) {
     //get the shop and its menu
+
     final shop = context.read<FoodShop>();
     final foodMenu = shop.foodmenu;
     Navigator.push(
@@ -51,6 +52,17 @@ class _MenuPageState extends State<MenuPage> {
             style:
                 GoogleFonts.dmSerifDisplay(fontSize: 28, color: Colors.black),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/cartpage');
+              },
+              icon: const Icon(
+                Icons.shopping_cart,
+                color: Colors.black,
+              ),
+            )
+          ],
         ),
         body: ListView(
           children: [
