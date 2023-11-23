@@ -61,8 +61,6 @@ class _FoodDetailsState extends State<FoodDetails> {
             IconButton(
                 onPressed: () {
                   Navigator.pop(context);
-
-                  Navigator.pop(context);
                 },
                 icon: const Icon(
                   Icons.done,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:simple_restaurant_ui/components/favorite_foods.dart';
+import 'package:simple_restaurant_ui/components/food_tile.dart';
 import 'package:simple_restaurant_ui/constants/food_list.dart';
 import 'package:simple_restaurant_ui/pages/food_details.dart';
-import 'package:simple_restaurant_ui/pages/food_tile.dart';
 import 'package:simple_restaurant_ui/widgets/custom_container.dart';
 
 class MenuPage extends StatefulWidget {
@@ -35,6 +36,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     final shop = context.read<FoodShop>();
     final foodMenu = shop.foodmenu;
+    final favoriteFoods = shop.foodfavorites;
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey[350],
@@ -159,47 +161,22 @@ class _MenuPageState extends State<MenuPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  margin: const EdgeInsets.all(12),
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            'lib/images/pitza.png',
-                            height: 100,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Pizza Masquerade',
-                                style: GoogleFonts.dmSerifDisplay(
-                                    fontSize: 20, color: Colors.black),
-                              ),
-                              Text(
-                                '\$28.00',
-                                style: GoogleFonts.dmSerifDisplay(
-                                    fontSize: 20, color: Colors.black),
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                      const Icon(Icons.favorite_outline,
-                          color: Colors.red, size: 30),
-                    ],
-                  ),
-                )
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Text('Favorites Menu ',
+                      style: GoogleFonts.robotoSlab(
+                          fontSize: 28,
+                          color: Colors.red,
+                          fontWeight: FontWeight.w500)),
+                ),
+                SizedBox(
+                    height: MediaQuery.of(context).size.height - 500,
+                    child: ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        itemCount: favoriteFoods.length,
+                        itemBuilder: (context, index) => FavoriteFoods(
+                              food: favoriteFoods[index],
+                            ))),
               ],
             ),
           ],
