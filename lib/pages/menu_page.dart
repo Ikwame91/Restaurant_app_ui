@@ -161,13 +161,28 @@ class _MenuPageState extends State<MenuPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Text('Favorites Menu ',
-                      style: GoogleFonts.robotoSlab(
-                          fontSize: 28,
-                          color: Colors.red,
-                          fontWeight: FontWeight.w500)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 15),
+                      child: Text('Favorites Menu ',
+                          style: GoogleFonts.robotoSlab(
+                              fontSize: 28,
+                              color: Colors.red,
+                              fontWeight: FontWeight.w500)),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/favoritepage');
+                      },
+                      icon: const Icon(
+                        Icons.favorite_rounded,
+                        size: 30,
+                        color: Colors.black,
+                      ),
+                    )
+                  ],
                 ),
                 SizedBox(
                     height: MediaQuery.of(context).size.height - 500,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_restaurant_ui/constants/food_list.dart';
 import 'package:simple_restaurant_ui/pages/cart_page.dart';
+import 'package:simple_restaurant_ui/pages/favorite_page.dart';
 import 'package:simple_restaurant_ui/pages/intro_page.dart';
 import 'package:simple_restaurant_ui/pages/menu_page.dart';
 
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           '/intropage': (context) => const IntroPage(),
           '/menupage': (context) => const MenuPage(),
           '/cartpage': (context) => const CartPage(),
+          '/favoritepage': (context) => const FavoritePage(),
         });
   }
 }

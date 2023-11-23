@@ -23,18 +23,30 @@ class IntroPage extends StatelessWidget {
                   ),
 
                   //Shop Name
-                  Text(
-                    'VILAINS PIZZA',
-                    style: GoogleFonts.dmSerifDisplay(
-                        fontSize: 28, color: Colors.white),
+                  Row(
+                    children: [
+                      Text(
+                        'VILAINS LOCAL',
+                        style: GoogleFonts.dmSerifDisplay(
+                            fontSize: 40, color: Colors.white),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.only(left: 10),
+                      ),
+                      const Image(
+                        image: AssetImage('lib/images/steak.png'),
+                        width: 50,
+                        height: 50,
+                      ),
+                    ],
                   ),
 
                   const Padding(
-                    padding: EdgeInsets.all(50.0),
+                    padding: EdgeInsets.all(10.0),
                     child: Image(
-                      image: AssetImage('lib/images/pizza.png'),
-                      width: 270,
-                      height: 270,
+                      image: AssetImage('lib/images/banku.png'),
+                      width: 320,
+                      height: 320,
                     ),
                   ),
                   const SizedBox(

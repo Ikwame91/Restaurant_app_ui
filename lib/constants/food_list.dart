@@ -60,7 +60,7 @@ class FoodShop extends ChangeNotifier {
   final List<Food> _foodFavorites = [
     Food(
       name: 'Banku & okro stew',
-      image: 'lib/images/bankuone.png',
+      image: 'lib/images/awakye.png',
       description:
           'Pizza is a savory dish of Italian origin consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and often various other ingredients, which is then baked at a high temperature, traditionally in a wood-fired oven.',
       price: 10.99,
@@ -71,7 +71,7 @@ class FoodShop extends ChangeNotifier {
     ),
     Food(
       name: 'fufu & palm soup',
-      image: 'lib/images/fufuone.png',
+      image: 'lib/images/chicken.png',
       description:
           'A beef (also burger for short) is a sandwich consisting of one or more cooked patties of ground meat, usually beef, placed inside a sliced bread roll or bun. The patty may be pan fried, grilled, smoked or flame broiled.',
       price: 5.99,
@@ -82,7 +82,7 @@ class FoodShop extends ChangeNotifier {
     ),
     Food(
       name: 'yam & palava sauce',
-      image: 'lib/images/yamone.png',
+      image: 'lib/images/gob.png',
       description:
           'Pasta is a type of Italian food typically made from an unleavened dough of wheat flour mixed with water or eggs, and formed into sheets or various shapes, then cooked by boiling or baking.',
       price: 8.99,
@@ -93,7 +93,7 @@ class FoodShop extends ChangeNotifier {
     ),
     Food(
         name: 'fufu & light soup',
-        image: 'lib/images/fufuthree.png',
+        image: 'lib/images/nip.png',
         description:
             'A salad is a dish consisting of a mixture of small pieces of food, usually vegetables or fruits. However, different varieties of salad may contain virtually any type of ready-to-eat food.',
         price: 6.99,
@@ -120,11 +120,15 @@ class FoodShop extends ChangeNotifier {
     }
   }
 
-  void addToFavorites(Food fooditems, int quantity) {
-    for (int i = 0; i < quantity; i++) {
-      favorites.add(fooditems);
-      notifyListeners();
-    }
+//add to favorites
+  void addToFavorites(Food food) {
+    favorites.add(food);
+    notifyListeners();
+  }
+
+  void removeFromFavorites(Food food) {
+    favorites.remove(food);
+    notifyListeners();
   }
 
   //remove from cart
