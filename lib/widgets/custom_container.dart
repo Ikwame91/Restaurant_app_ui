@@ -20,7 +20,7 @@ class CustomContainer extends StatelessWidget {
               )
             ]),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(15.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -50,15 +50,24 @@ class FoodShop extends ChangeNotifier {
 
 //customers cart
   List<Food> cart = [];
+  List<Food> favorites = [];
 
 //getter methods
   List<Food> get foodmenu => _foodMenu;
   List<Food> get cartItems => cart;
+  List<Food> get favorItems => favorites;
 
 //add to cart
   void addToCart(Food fooditems, int quantity) {
     for (int i = 0; i < quantity; i++) {
       cart.add(fooditems);
+      notifyListeners();
+    }
+  }
+
+  void addToFavorites(Food fooditems, int quantity) {
+    for (int i = 0; i < quantity; i++) {
+      favorites.add(fooditems);
       notifyListeners();
     }
   }

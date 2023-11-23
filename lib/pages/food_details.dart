@@ -16,6 +16,9 @@ class FoodDetails extends StatefulWidget {
 class _FoodDetailsState extends State<FoodDetails> {
   //
   int quantity = 0;
+  double calculateTotalPrice() {
+    return quantity * widget.food.price;
+  }
 
   //increment quantity
   void incrementQuantity() {
@@ -147,7 +150,7 @@ class _FoodDetailsState extends State<FoodDetails> {
               color: primaryColor,
               borderRadius: BorderRadius.circular(5),
             ),
-            padding: const EdgeInsets.all(5),
+            padding: const EdgeInsets.all(8),
             child: Column(
               children: [
                 //price
@@ -155,12 +158,15 @@ class _FoodDetailsState extends State<FoodDetails> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      '\$${widget.food.price}',
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
+                    SizedBox(
+                      width: 70,
+                      child: Text(
+                        '\$${calculateTotalPrice()}',
+                        style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20),
+                      ),
                     ),
                     Row(
                       children: [
