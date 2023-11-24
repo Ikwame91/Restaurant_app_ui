@@ -5,8 +5,8 @@ import 'package:simple_restaurant_ui/components/favorite_foods.dart';
 import 'package:simple_restaurant_ui/components/food_tile.dart';
 import 'package:simple_restaurant_ui/constants/food_list.dart';
 import 'package:simple_restaurant_ui/pages/food_details.dart';
-import 'package:simple_restaurant_ui/widgets/custom_container.dart';
 import 'package:simple_restaurant_ui/widgets/custom_drawer.dart';
+import 'package:simple_restaurant_ui/widgets/slider.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({
@@ -72,45 +72,14 @@ class _MenuPageState extends State<MenuPage> {
             ),
           ],
         ),
-        drawer: CustomDrawer(),
+        drawer: const CustomDrawer(),
         body: ListView(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //promo banner
-                Container(
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 121, 3),
-                      borderRadius: BorderRadius.circular(20)),
-                  margin: const EdgeInsets.all(15),
-                  padding: const EdgeInsets.all(15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //promo message
-                          Text(
-                            'Get 50% Promo',
-                            style: GoogleFonts.dmSerifDisplay(
-                                fontSize: 20, color: Colors.black),
-                          ),
-                          const SizedBox(
-                            height: 15,
-                          ),
-                          //button
-                          const CustomContainer(text: 'Redeem')
-                        ],
-                      ),
-                      Image.asset(
-                        'lib/images/fufuone.png',
-                        height: 180,
-                      )
-                    ],
-                  ),
-                ),
+                SizedBox(height: 300, width: 400, child: PageSlide()),
                 //search bar
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 22),
