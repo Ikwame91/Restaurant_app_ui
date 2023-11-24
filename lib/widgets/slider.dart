@@ -59,7 +59,7 @@ class PageSlide extends StatelessWidget {
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   const CustomContainer(text: ' Redeem your coupon ')

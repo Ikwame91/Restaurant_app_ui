@@ -157,7 +157,7 @@ class _FoodDetailsState extends State<FoodDetails> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     SizedBox(
-                      width: 70,
+                      width: 100,
                       child: Text(
                         '\$${calculateTotalPrice()}',
                         style: const TextStyle(
