@@ -6,6 +6,7 @@ import 'package:simple_restaurant_ui/components/food_tile.dart';
 import 'package:simple_restaurant_ui/constants/food_list.dart';
 import 'package:simple_restaurant_ui/pages/food_details.dart';
 import 'package:simple_restaurant_ui/widgets/custom_container.dart';
+import 'package:simple_restaurant_ui/widgets/custom_drawer.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({
@@ -45,9 +46,14 @@ class _MenuPageState extends State<MenuPage> {
           centerTitle: true,
           backgroundColor: Colors.transparent,
           elevation: 0.0,
-          leading: const Icon(
-            Icons.menu,
-            color: Colors.black,
+          leading: Builder(
+            builder: (context) => IconButton(
+              icon: const Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            ),
           ),
           title: Text(
             'Ghana',
@@ -63,9 +69,10 @@ class _MenuPageState extends State<MenuPage> {
                 Icons.shopping_cart,
                 color: Colors.black,
               ),
-            )
+            ),
           ],
         ),
+        drawer: CustomDrawer(),
         body: ListView(
           children: [
             Column(
