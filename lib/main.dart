@@ -4,6 +4,7 @@ import 'package:simple_restaurant_ui/constants/food_list.dart';
 import 'package:simple_restaurant_ui/pages/cart_page.dart';
 import 'package:simple_restaurant_ui/pages/favorite_page.dart';
 import 'package:simple_restaurant_ui/pages/intro_page.dart';
+import 'package:simple_restaurant_ui/pages/login.dart';
 import 'package:simple_restaurant_ui/pages/menu_page.dart';
 
 void main() {
@@ -31,8 +32,9 @@ class MyApp extends StatelessWidget {
             bodySmall: TextStyle(color: Colors.black),
           ),
         ),
-        home: const IntroPage(),
+        home: const LoginPage(),
         routes: {
+          '/loginpage': (context) => const LoginPage(),
           '/intropage': (context) => const IntroPage(),
           '/menupage': (context) => const MenuPage(),
           '/cartpage': (context) => const CartPage(),
