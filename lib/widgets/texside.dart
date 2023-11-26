@@ -5,11 +5,12 @@ class TextSide extends StatelessWidget {
   final String hintText;
   final bool obscureText;
 
-  const TextSide(
-      {super.key,
-      this.controller,
-      required this.hintText,
-      required this.obscureText});
+  const TextSide({
+    super.key,
+    this.controller,
+    required this.hintText,
+    required this.obscureText,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(

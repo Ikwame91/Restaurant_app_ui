@@ -42,10 +42,10 @@ class _LoginPageState extends State<LoginPage> {
                     child: Container(
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
-                        gradient: const LinearGradient(
+                        gradient: LinearGradient(
                           colors: [
-                            Colors.white,
-                            Colors.black,
+                            abstractColor,
+                            secondaryColor,
                           ],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -57,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [
-                              Colors.white,
+                              primaryColor,
                               secondaryColor,
                             ],
                             begin: Alignment.topLeft,
@@ -66,24 +66,20 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Container(
-                          decoration: BoxDecoration(
-                            gradient: const LinearGradient(
-                              colors: [Colors.black, Colors.white],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
+                            decoration: BoxDecoration(
+                              gradient: const LinearGradient(
+                                colors: [Colors.black, Colors.white],
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                              ),
+                              borderRadius: BorderRadius.circular(12),
                             ),
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          padding: const EdgeInsets.all(20),
-                          child: Text(
-                            'Villain Food',
-                            style: GoogleFonts.vastShadow(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
+                            padding: const EdgeInsets.all(20),
+                            child: Image.asset(
+                              'lib/images/pizza.png',
+                              height: 100,
+                              width: 100,
+                            )),
                       ),
                     ),
                   ),
@@ -135,7 +131,10 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  const CustomContainer(text: 'sign in'),
+                  CustomContainer(
+                    text: 'Login',
+                    onTap: () => Navigator.pushNamed(context, '/intropage'),
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -150,11 +149,14 @@ class _LoginPageState extends State<LoginPage> {
                             color: Colors.grey[400],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 10.0),
                           child: Text(
                             'Or continue with...',
-                            style: TextStyle(color: Colors.grey[700]),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 19,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         Expanded(
@@ -178,29 +180,30 @@ class _LoginPageState extends State<LoginPage> {
                       ImageField(imagePath: 'lib/images/apple.png')
                     ],
                   ),
-                  const SizedBox(height: 50),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         'Not A Member?',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.grey[500],
+                        style: GoogleFonts.labrada(
+                          fontSize: 20,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       const SizedBox(width: 13),
-                      const Text(
+                      Text(
                         'Register Now',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.blue,
+                        style: GoogleFonts.labrada(
+                          fontSize: 25,
+                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       )
                     ],
-                  )
+                  ),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
